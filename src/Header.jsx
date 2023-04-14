@@ -1,3 +1,3 @@
-export default function Header() {
-  return <div>wtf is wrong with this un,vese</div>;
+export default function Header(props) {
+  return <header>You have ${props.money} to spend</header>;
 }
