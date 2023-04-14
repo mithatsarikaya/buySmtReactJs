@@ -8,7 +8,7 @@ export default function Product({ product, money, setMoney }) {
   }
 
   return (
-    <div className="product--container">
+    <div className="product">
       <button disabled={money < product.price} onClick={decreaseMoney}>
         Buy
       </button>
