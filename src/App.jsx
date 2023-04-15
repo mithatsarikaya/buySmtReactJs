@@ -27,7 +27,9 @@ export default function App() {
 
       <div className="basket--container">
         {basket &&
-          basket.map((item) => <Basket name={item.name} price={item.price} />)}
+          basket.map((item) => (
+            <Basket quantity={item.quantity} title={item.title} />
+          ))}
       </div>
     </div>
   );

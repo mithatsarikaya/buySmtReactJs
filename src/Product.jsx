@@ -7,7 +7,23 @@ export default function Product({
 }) {
   function buySmt() {
     setMoney((prevMoney) => prevMoney - product.price);
-    // setBasket((prevBasket) => prevBasket.map());
+    setBasket((prevBasket) => {
+      if (prevBasket.some((p) => p.id === product.id)) {
+        console.log("here there is some");
+        return prevBasket.map((p) =>
+          p.id === product.id ? { ...p, quantity: parseInt(p.quantity) + 1 } : p
+        );
+      } else {
+        return [
+          ...prevBasket,
+          {
+            id: product.id,
+            title: product.title,
+            quantity: 1,
+          },
+        ];
+      }
+    });
   }
 
   function sellSmt() {

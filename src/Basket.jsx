@@ -1,7 +1,7 @@
-export default function Basket({ name, price, quantity }) {
+export default function Basket({ title, quantity }) {
   return (
     <div>
-      {name} X {quantity} = {price * quantity}
+      {title} X {quantity}
     </div>
   );
 }
