@@ -7,7 +7,11 @@ import products from "./products.json";
 export default function App() {
   const [money, setMoney] = React.useState(1000);
   const [basket, setBasket] = React.useState([]);
-  console.log(basket);
+
+  let costOfTheBasket = basket.reduce(
+    (acc, b) => (acc += b.quantity * b.price),
+    0
+  );
 
   return (
     <div>
@@ -27,9 +31,15 @@ export default function App() {
       </div>
 
       <div className="basket--container">
+        {costOfTheBasket}
         {basket &&
           basket.map((item, index) => (
-            <Basket key={index} quantity={item.quantity} title={item.title} />
+            <Basket
+              key={index}
+              quantity={item.quantity}
+              title={item.title}
+              price={item.price}
+            />
           ))}
       </div>
     </div>

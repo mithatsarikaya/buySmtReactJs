@@ -20,6 +20,7 @@ export default function Product({
             id: product.id,
             title: product.title,
             quantity: 1,
+            price: product.price,
           },
         ];
       }
@@ -54,9 +55,8 @@ export default function Product({
       <button disabled={money < product.price} onClick={buySmt}>
         Buy
       </button>
-      <h3>
-        {product.title} ${product.price}
-      </h3>
+      <h3></h3>
+      {product.title} ${product.price}
       <button disabled={!isItemInTheBasket} onClick={sellSmt}>
         Sell
       </button>
