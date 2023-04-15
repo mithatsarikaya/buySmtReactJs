@@ -5,8 +5,9 @@ import Basket from "./Basket";
 import products from "./products.json";
 
 export default function App() {
-  const [money, setMoney] = React.useState(100);
+  const [money, setMoney] = React.useState(1000);
   const [basket, setBasket] = React.useState([]);
+  console.log(basket);
 
   return (
     <div>
@@ -27,8 +28,8 @@ export default function App() {
 
       <div className="basket--container">
         {basket &&
-          basket.map((item) => (
-            <Basket quantity={item.quantity} title={item.title} />
+          basket.map((item, index) => (
+            <Basket key={index} quantity={item.quantity} title={item.title} />
           ))}
       </div>
     </div>
