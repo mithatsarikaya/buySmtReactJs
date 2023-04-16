@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./Header";
-import Product from "./Product";
+import Products from "./Products";
 import Basket from "./Basket";
-import products from "./products.json";
+import productsData from "./products.json";
 import { MainContext } from "./context/MainContext";
 
 export default function App() {
@@ -19,17 +19,14 @@ export default function App() {
     setMoney,
     basket,
     setBasket,
+    productsData,
   };
 
   return (
     <MainContext.Provider value={data}>
       <Header money={money} />
 
-      <div className="product--container">
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-      </div>
+      <Products />
 
       <div className="basket--container">
         {costOfTheBasket != 0 && "total:  " + costOfTheBasket}
