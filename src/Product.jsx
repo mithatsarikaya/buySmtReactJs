@@ -1,10 +1,9 @@
-export default function Product({
-  product,
-  money,
-  setMoney,
-  basket,
-  setBasket,
-}) {
+import { useContext } from "react";
+import { MainContext } from "./context/MainContext";
+
+export default function Product({ product }) {
+  const { basket, setBasket, money, setMoney } = useContext(MainContext);
+
   //if item is already in the basket then increase quantity, else add item as an object
   function buySmt() {
     setMoney((prevMoney) => prevMoney - product.price);

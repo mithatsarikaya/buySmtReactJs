@@ -3,6 +3,7 @@ import Header from "./Header";
 import Product from "./Product";
 import Basket from "./Basket";
 import products from "./products.json";
+import { MainContext } from "./context/MainContext";
 
 export default function App() {
   const [money, setMoney] = React.useState(1000);
@@ -13,20 +14,20 @@ export default function App() {
     0
   );
 
+  const data = {
+    money,
+    setMoney,
+    basket,
+    setBasket,
+  };
+
   return (
-    <div>
+    <MainContext.Provider value={data}>
       <Header money={money} />
 
       <div className="product--container">
         {products.map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-            money={money}
-            setMoney={setMoney}
-            basket={basket}
-            setBasket={setBasket}
-          />
+          <Product key={product.id} product={product} />
         ))}
       </div>
 
@@ -42,6 +43,6 @@ export default function App() {
             />
           ))}
       </div>
-    </div>
+    </MainContext.Provider>
   );
 }
