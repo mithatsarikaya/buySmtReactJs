@@ -31,7 +31,7 @@ export default function App() {
       </div>
 
       <div className="basket--container">
-        {costOfTheBasket}
+        {costOfTheBasket != 0 && "total:  " + costOfTheBasket}
         {basket &&
           basket.map((item, index) => (
             <Basket
